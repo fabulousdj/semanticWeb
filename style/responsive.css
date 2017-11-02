@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+/* This file contains CSS related to responsiveness (browser size changes, grids, etc.) */
+
+.section {
+	clear: both;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.col {
+	float:left;
+	display: block;
+	margin-right: 0;
+	text-align:center;
+	vertical-align: middle;
+	height:100%;
+}
+.col:first-child {
+	margin-left: 0;
+}
+
+.grp:before, .grp:after {
+	display: table;
+}
+
+.grp:after { 
+	clear: both;
+}
+
+.half {
+	width: 50%;
+}
+
+.third {
+	width: 33%;
+}
+
+.two-thirds {
+	width: 66%;
+}
+
+
+@media only screen and (max-width: 1000px) {
+	.col {
+		margin: 1% 0 1% 0%;
+	}
+	.half {
+		width: 100%;
+	}
+	.third {
+		width: 100%;
+	}
+
+	.two-thirds{
+		width: 100%;
+	}
+}

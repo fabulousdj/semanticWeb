@@ -47,27 +47,52 @@
 				<br>
 				<hr>
 				<div class="projects-subsection">
-					<h2>Tutorial 1</h2>
+					<h2>Abstract</h2>
 					<ul class="subsection-top-list">
-						<li>Intro to graph data [<a class="pretty-link" href="" target="new">pdf</a>] [<a class="pretty-link" href="" target="new">slides</a>] [<a class="pretty-link" href="" target="new">website</a>]
-							<ol class="grey-list">
-								<li>Go here</li>
-								<li>then here</li>
-							</ol>
-						</li>
-						<li>Here's a screen shot 
-							<ul class="grey-list">
-								<li>Description</li>
+						<li>Similar to relational database, graph database is the data storage model that lays the foundation for a semantic web. </li>
+						<li>Use graph (nodes and edges) to represent data items and the relationships inbetween. </li>								
+						<li>Better at handling associative data sets and can scale more naturally than other types of database.</li>
+					</ul>
+
+					<h2>The Graph Database</h2>
+					<br>
+					<img src="img/graphdb.png">
+					<br>
+					<ol class="subsection-top-list">
+						<li>Structures
+							<ul>
+								<li>Graph databases are based on graph theory, and employ nodes, edges, and properties. </li>
+								<li>Nodes represent entities such as people, businesses, accounts, or any other item to be tracked. They are roughly the equivalent of the record, relation, or row in a relational database. </li>
+								<li>Edges are the lines that connect nodes to other nodes and represent the relationship between them. Edges are the key concept in graph databases, representing an abstraction that is not directly implemented in other systems.</li>
+								<li>Properties are germane information that relate to nodes. For example, if DBPedia were one of the nodes, it might be tied to properties such as its website and creator. Properties are essentially relationships having pointers to the corresponding documents. </li>
 							</ul>
 						</li>
+						<li>Features
+								<ul>In a graph database, no element of data has more importance or precedence over other elements. Thus this "flat" structure brings graph DB with a lot of advantages.
+									<li>Can scale more naturally to large data sets. </li>
+									<li>More suitable to changing data with evolving data schemas. </li>
+									<li>Can map complex relationships using less storage space and supports faster operations. </li>									
+								</ul>
+							</li>
+					</ol>
+
+					<h2>Data Graph Example</h2>
+					For example, we woud like to define entities and relationships as follow:
+					<ul>
+						<li>Bengie is a dog.</li>
+						<li>Bonnie is a cat.</li>
+						<li>Bengie and Bonnie are friends.</li>
 					</ul>
+					<br>
+					<img src="img/example_graph.png"><br>
+					<br>
+					* The arrows in the graph are proeprties.
+					<br>
+					<br>
 				</div>
 				<br>
 				<hr>
-
-
 			</div>
 		</div>
-
 	</body>
 </html>

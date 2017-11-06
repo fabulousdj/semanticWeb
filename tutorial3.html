@@ -47,17 +47,61 @@
 				<br>
 				<hr>
 				<div class="projects-subsection">
-					<h2>Tutorial 3</h2>
+					<h2>Current Models Stink (at talking)</h2>
 					<ul class="subsection-top-list">
-						<li>Intro to graph data [<a class="pretty-link" href="" target="new">pdf</a>] [<a class="pretty-link" href="" target="new">slides</a>] [<a class="pretty-link" href="" target="new">website</a>]
-							<ol class="grey-list">
-								<li>Go here</li>
-								<li>then here</li>
-							</ol>
+						<li>It's all about <b>the way you model your data</b>. Some common models you are probably familiar with are:
+							<ul>
+								<li>Relational: SQL</li>
+								<li>Hierarchical: XML</li>
+							</ul>
 						</li>
-						<li>Here's a screen shot 
-							<ul class="grey-list">
-								<li>Description</li>
+						<li><b>But these don't play well together...</b> even within the same model. If you want to combine and compare data between two SQL or XML sources, you need to know highly detailed specifics about their structure. This takes <b>time, money and coordination</b> between you and the writers of the data stores. 
+							<ul>
+								<li>Decide on a common data format</li>
+								<li>Create a secure endpoint on each website for requests</li>
+								<li>Want to incorporate a third source? Start all over again.</li>
+							</ul>
+						</li>
+					</ul>
+					<h2>Why Semantic Modeling is Better</h2>
+					<ul class="subsection-top-list">
+						<li>
+							<b>Semantic modeling makes it easy to communicate between data sources.</b> Here are some important terms you should know before we dive in:
+							<ul>
+								<li><b>Vocabulary:</b> A collection of terms given a well-defined meaning that is consistent across contexts.</li>
+								<li><b>Ontology:</b> Allows you to define <i>contextual relationships</i> behind a defined <b>vocabulary</b>. See <a href="http://www.w3.org/TR/owl-features/" class="pretty-link" target="new">OWL</a> (Web Ontology Language) for a formal example. More on this later.</li>
+							</ul>
+						</li>
+						<li>
+							Now let's consider an example of two sites with similar information that we may want to query from. Let's say:
+							<ul>
+								<li><b>Site 1:</b> A recipe database. Lots of info on ingredients, cooking times, etc.</li>
+								<li><b>Site 2:</b> A Food Network site that keeps track of meals that have been cooked on their shows, along with variations of the recipes.</li>
+							</ul>
+						</li>
+						<li>
+							<b>You</b> are building a hands-free kitchen helper that pulls recipe info, and suddenly your user asks, "What's an easy way to cook the last thing Rachel Ray made on Food Network?" How do you write that query?
+							<ul>
+								<li>With the semantic web, this is easy!</li>
+								<li>If Site 1 and Site 2 adopt a common <b>vocabulary</b> such that they both agree on what a "recipe", "ingredient", and "chef" is, you can <b>query both sites by using exactly the same terms.</b></li>
+							</ul>
+						</li>
+					</ul>
+					<h2>Not All Fun and Games</h2>
+					<ul class="subsection-top-list">
+						<li>
+							Of course, the "if" in the phrase "if both sites adopt a common vocabulary" is a BIG "if".
+							<ul>
+								<li>There are common vocabularies out there that anyone can use (remember OWL)</li>
+								<li>But adding it to your site means <b>overhead.</b></li>
+							</ul>
+						</li>
+						<li>
+							Maybe one day the whole internet will be semantic-enabled. But for now, most initiatives to become semantic are within smaller knowledge domains:
+							<ul>
+								<li><a href="http://dublincore.org/" class="pretty-link" target="new">Dublin Core Metadata Initiative (DCMI)</a> - Creates ontologies for a range of subjects, particularly focusing on common, every day terms and terms important in media.</li>
+								<li><a href="http://www.foaf-project.org/" class="pretty-link" target="new">Friend Of A Friend (FOAF)</a> - focuses on developing a standard vocabulary/ontology for social networking purposes.</li>
+								<li><a href="http://www.opencyc.org/" class="pretty-link" target="new">OpenCyc</a> - An ontology of everyday, common sense terms.</li>
 							</ul>
 						</li>
 					</ul>

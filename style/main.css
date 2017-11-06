@@ -157,7 +157,9 @@ p {
 	color:white;
 }
 
-
+#semanticLogo {
+	margin:50px 0px;
+}
 
 .box-gray {
 	background-color: #D9D9D9;
@@ -199,12 +201,7 @@ p {
     }
 }
 
-@media screen and (max-width: 800px) {
-	#profile-pic {
-		width: 200px;
-		height:200px;
-	}
-}
+
 
 img{
 	vertical-align: middle;
@@ -281,6 +278,10 @@ a.footer {
 	padding-top:3px;
 	color:gray;
 	line-height: 18px;
+}
+
+ li {
+	margin-top:5px;
 }
 
 

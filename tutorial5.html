@@ -9,7 +9,7 @@
 		<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
 		<meta name="description" content="Semantic Web Tutorial">
 		<meta name="keywords" content="Semantic Web Tutorial, DBPedia">
-		<meta name="author" content="Jackson Killian, et al.">
+		<meta name="author" content="Joshua Sandvick, et al.">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -49,23 +49,54 @@
 				<div class="projects-subsection">
 					<h2>Tutorial 5</h2>
 					<ul class="subsection-top-list">
-						<li>Intro to graph data [<a class="pretty-link" href="" target="new">pdf</a>] [<a class="pretty-link" href="" target="new">slides</a>] [<a class="pretty-link" href="" target="new">website</a>]
-							<ol class="grey-list">
-								<li>Go here</li>
-								<li>then here</li>
+						<li>Writing a SPARQL query
+							<ol>
+								<p>To access the information in DBpedia, we will be using a query language called SPARQL.<br>
+								SPARQL is pretty similar in syntax to SQL, but its queries are built on the subject-predicate-object syntax found in RDF documents.<br>
+								To play around with SPARQL, navigate <a href="https://dbpedia.org/sparql" target="new">here</a>.</p>
+								<br/>
+								
+								<p>To make this tutorial practical, we will search for a specific thing. Let's say that we want to find all female senators that have served in the United States.<br>
+								One way to break up this query conceptually is to think that we need to find the group of females, the group of senators, and the group of Americans, and then to find the intersection of those three groups.<br>
+								Let's start off by finding the group of females. Enter this query into the SPARQL box and then run it:</p> 
+								<xmp>SELECT ?pages WHERE {</xmp>
+								<xmp>	  ?pages rdf:type yago:Female109619168</xmp>
+								<xmp>}</xmp>
+								<p>If you are coming from a SQL background, the first thing that you might notice is that there is no FROM clause in the query.
+								This is because the webpage that you are using to query DBpedia automatically inserts a FROM clause using the "Default Data Set Name" field towards the top of the page.</p>
+								<p>Another thing that you should notice is the "?pages" that is being selected. Anything that begins with a '?' is a variable in SPARQL, and that means that if it appears in
+								the WHERE clause of a query, it is either going to be returned as a selected variable in the SELECT clause or used to filter out another condition in the WHERE clause.</p>
+								<p>We can see that condition in the WHERE clause has a subject (?pages), predicate (rdf:type), and object (yago:Female109619168). Don't worry too much about how we came up with the value for each of those right now, but if you'd like to see an example page where I pulled some of these triplets from, look at <a href="http://dbpedia.org/page/Hillary_Clinton" target="new">Hillary Clinton's DBpedia page</a>.</p>
+								<br/>
+								
+								<p>Now, let's add another condition to the query to restrict the group to things that are identified as being both females AND senators. Make your query look like this:</p>
+								<xmp>SELECT ?pages WHERE {</xmp>
+								<xmp>	  ?pages rdf:type yago:Female109619168 .</xmp>
+								<xmp>	  ?pages rdf:type yago:Senator110578471</xmp>
+								<xmp>}</xmp>
+								<p>There are a couple things to note here. The first is the period that was added after the female group condition. The period indicates that there is more to come in the WHERE clause.
+								The second thing to note is that both the female group and senator group conditions have the same subject and predicate. The subject is the same because we only want the variable ?pages to be populated with
+								things that fulfill both conditions. The predicates are the same because the objects that we want the subject to be associated with are both of the nature of types of things (rdf:type). An example of another possible predicate from DBpedia
+								would be dbo:genus, which will give you the genus of your subject.</p>
+								<br/>
+								
+								<p>The final condition to add to the query is to get the group of Americans. Make your query look like this:</p>
+								<xmp>SELECT ?pages WHERE {</xmp>
+								<xmp>	  ?pages rdf:type yago:Female109619168 .</xmp>
+								<xmp>	  ?pages rdf:type yago:Senator110578471 .</xmp>
+								<xmp>	  ?pages dbo:birthPlace dbr:United_States</xmp>
+								<xmp>}</xmp>
+								<p>Finally we see a different predicate: dbo:birthPlace. Notice that we decided to get U.S. senators by grabbing people that were born there. A better way to filter this down would probably be to find a predicate that indicates if someone currently resides in the U.S., but our query is a good approximation.
+								With this, we have a fairly comprehensive list of female senators in America.</p>
+								<br>
+								
+								<p>Hopefully, this tutorial series gave you a good idea about graph relations, RDF documents, DBpedia, and SPARQL. A great way to get better at queries is to look at subject-predicate-object pairs on DBpedia pages and gain an intuition for them if you'd like to learn more.
 							</ol>
-						</li>
-						<li>Here's a screen shot 
-							<ul class="grey-list">
-								<li>Description</li>
-							</ul>
 						</li>
 					</ul>
 				</div>
 				<br>
 				<hr>
-
-
 			</div>
 		</div>
 

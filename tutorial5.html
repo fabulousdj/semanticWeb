@@ -52,7 +52,7 @@
 							<ol>
 								<p>To access the information in DBpedia, we will be using a query language called SPARQL.<br>
 								SPARQL is pretty similar in syntax to SQL, but its queries are built on the subject-predicate-object syntax found in RDF documents.<br>
-								To play around with SPARQL, navigate <a href="https://dbpedia.org/sparql" target="new">here</a>.</p>
+								To play around with SPARQL, navigate <a href="https://dbpedia.org/sparql" target="new" class="pretty-link" >here</a>.</p>
 								<br/>
 								
 								<p>To make this tutorial practical, we will search for a specific thing. Let's say that we want to find all female senators that have served in the United States.<br>
@@ -65,7 +65,7 @@
 								This is because the webpage that you are using to query DBpedia automatically inserts a FROM clause using the "Default Data Set Name" field towards the top of the page.</p>
 								<p>Another thing that you should notice is the "?pages" that is being selected. Anything that begins with a '?' is a variable in SPARQL, and that means that if it appears in
 								the WHERE clause of a query, it is either going to be returned as a selected variable in the SELECT clause or used to filter out another condition in the WHERE clause.</p>
-								<p>We can see that condition in the WHERE clause has a subject (?pages), predicate (rdf:type), and object (yago:Female109619168). Don't worry too much about how we came up with the value for each of those right now, but if you'd like to see an example page where I pulled some of these triplets from, look at <a href="http://dbpedia.org/page/Hillary_Clinton" target="new">Hillary Clinton's DBpedia page</a>.</p>
+								<p>We can see that condition in the WHERE clause has a subject (?pages), predicate (rdf:type), and object (yago:Female109619168). Don't worry too much about how we came up with the value for each of those right now, but if you'd like to see an example page where I pulled some of these triplets from, look at <a href="http://dbpedia.org/page/Hillary_Clinton" target="new" class="pretty-link" >Hillary Clinton's DBpedia page</a>.</p>
 								<br/>
 								
 								<p>Now, let's add another condition to the query to restrict the group to things that are identified as being both females AND senators. Make your query look like this:</p>

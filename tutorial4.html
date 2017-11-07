@@ -1,73 +1,181 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
 
-		<meta property="og:title" content="Semantic Web Tutorial" />
+<head>
+	<meta charset="utf-8">
 
-		<!-- Always forces latest IE rendering engine or request Chrome Frame -->
-		<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-		<meta name="description" content="Semantic Web Tutorial">
-		<meta name="keywords" content="Semantic Web Tutorial, DBPedia">
-		<meta name="author" content="Jackson Killian, et al.">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Semantic Web Tutorial" />
 
-		<title>Semantic Web Tutorial</title>
+	<!-- Always forces latest IE rendering engine or request Chrome Frame -->
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+	<meta name="description" content="Semantic Web Tutorial">
+	<meta name="keywords" content="Semantic Web Tutorial, DBPedia">
+	<meta name="author" content="Jackson Killian, et al.">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="icon" href="img/favicon.ico">
-		<link rel="shortcut icon" href="img/favicon.ico">
-		<script src="https://use.fontawesome.com/cd4f7176ad.js"></script>
-		<link rel="stylesheet" type="text/css" href="style/main.css">
-		<link rel="stylesheet" type="text/css" href="style/navbar.css">
+	<title>Introducing RDFS & OWL</title>
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<link rel="icon" href="img/favicon.ico">
+	<link rel="shortcut icon" href="img/favicon.ico">
+	<script src="https://use.fontawesome.com/cd4f7176ad.js"></script>
+	<link rel="stylesheet" type="text/css" href="style/main.css">
+	<link rel="stylesheet" type="text/css" href="style/navbar.css">
 
-
-	</head>
-	<body>
-
-		<div id="nav">
-			<ul>
-				<li><a href="about.html" class="secondary-page-link">About</a></li>
-				<li><a href="tutorial1.html" class="secondary-page-link">Tutorial 1</a></li>
-				<li><a href="tutorial2.html" class="secondary-page-link">Tutorial 2</a></li>
-				<li><a href="tutorial3.html" class="secondary-page-link">Tutorial 3</a></li>
-				<li><a href="tutorial4.html" class="secondary-page-link">Tutorial 4</a></li>
-				<li><a href="tutorial5.html" class="secondary-page-link">Tutorial 5</a></li>
-
-			</ul>
-		</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 
-		<div class="header-filler"></div>
-		<div id="homepage">
-			<div class="container">
-				<h1>Semantic Web Tutorial</h1>
-				<br>
-				<hr>
-				<div class="projects-subsection">
-					<h2>Tutorial 4</h2>
-					<ul class="subsection-top-list">
-						<li>Intro to graph data [<a class="pretty-link" href="" target="new">pdf</a>] [<a class="pretty-link" href="" target="new">slides</a>] [<a class="pretty-link" href="" target="new">website</a>]
-							<ol class="grey-list">
-								<li>Go here</li>
-								<li>then here</li>
-							</ol>
-						</li>
-						<li>Here's a screen shot 
-							<ul class="grey-list">
-								<li>Description</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-				<br>
-				<hr>
+</head>
+
+<body>
+
+	<div id="nav">
+		<ul>
+			<li><a href="about.html" class="secondary-page-link">About</a></li>
+			<li><a href="tutorial1.html" class="secondary-page-link">Introducing Graph Data</a></li>
+			<li><a href="tutorial2.html" class="secondary-page-link">Introducing RDF</a></li>
+			<li><a href="tutorial3.html" class="secondary-page-link">Semantic Modeling</a></li>
+			<li><a href="tutorial4.html" class="secondary-page-link">Introducing RDFS & OWL</a></li>
+			<li><a href="tutorial5.html" class="secondary-page-link">Querying Semantic Data</a></li>
+
+		</ul>
+	</div>
 
 
+	<div class="header-filler"></div>
+	<div id="homepage">
+		<div class="container">
+			<h1>Introducing RDFS & OWL</h1>
+			<br>
+			<hr>
+			<div class="projects-subsection">
+
+				<h2 id="fundamentalbuildblocksofsemanticweb">Fundamental Build Blocks of Semantic Web</h2>
+
+				<ul>
+					<li>Vocabulary: A collection of terms given a well-defined meaning that is consistent across contexts.
+
+						<ul>
+							<li>Represent objects and concepts</li>
+						</ul>
+					</li>
+					<li>Ontology: Allows you to define contextual relationships behind a defined vocabulary.
+
+						<ul>
+							<li>Describe relationships between objects and concepts</li>
+							<li>Define taxonomies of objects and classification networks</li>
+						</ul>
+					</li>
+				</ul>
+
+				<h2 id="howdowedefinevocabularyandontology">How Do We Define Vocabulary and Ontology</h2>
+
+				<ul>
+					<li>
+						<p>Use a special kind of RDF document.</p>
+					</li>
+					<li>
+						<p>Ontologies are still RDF Triples, but using special syntaxes.</p>
+					</li>
+					<li>RDFS (RDF Schema) and OWL (Web Ontology Language) are the formal syntaxes to <strong>define Semantics and Ontologies</strong>.
+
+						<ul>
+							<li>They are both predefined <strong>RDF vocabularies</strong></li>
+							<li>RDFS: a set of RDF vocabulary that covers basic taxonomic relations, object relations, and datatype properties</li>
+							<li>OWL: an extension of RDFS that can define more complex semantics and relationships</li>
+						</ul>
+					</li>
+					<li>Example:
+
+						<ul>
+							<li>Consider the following sentence:
+
+								<ul>
+									<li>&#8220;Bugatti Veyron is a motor vehicle whose top speed is 254 mph, while its successor, Bugatti Chiron, can reach a top speed of 288 mph.&#8221;</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+
+				<pre><code>
+&lt;rdf:RDF 
+	xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; 
+	xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot; 
+	xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot;&gt;
+	
+	&lt;!-- Define the &quot;Vehicle&quot; class --&gt;
+	&lt;owl:Class 
+		rdf:about=&quot;http://ontology.osu.edu/transportation#vehicle&quot;&gt;
+		&lt;rdfs:label&gt;The vehicle type&lt;/rdfs:label&gt;
+		&lt;rdfs:comment&gt;The class of vehicle types.&lt;/rdfs:comment&gt;
+	&lt;/owl:Class&gt;
+
+	&lt;!-- Define the &quot;Motor Vehicle&quot; class as a subclass of &quot;Vehicle&quot; --&gt;
+	&lt;owl:Class 
+		rdf:about=&quot;http://ontology.osu.edu/transportation#motorVehicle&quot;&gt;
+
+		&lt;!-- Motor Vehicle is a kind of Vehicle --&gt;
+		&lt;rdfs:subClassOf rdf:resource=&quot;http://ontology.osu.edu/transportation#vehicle&quot;/&gt;
+		&lt;rdfs:label&gt;The motor vehicle type&lt;/rdfs:label&gt;
+		&lt;rdfs:comment&gt;The class of motor vehicle.&lt;/rdfs:comment&gt;
+	&lt;/owl:Class&gt;
+	
+	&lt;!-- Define the &quot;top speed&quot; property --&gt;
+	&lt;owl:DatatypeProperty rdf:about=&quot;http://ontology.osu.edu/transportation#topSpeed&quot;/&gt;
+	
+	&lt;!-- Define the &quot;successor&quot; property --&gt;
+	&lt;owl:ObjectProperty rdf:about=&quot;http://ontology.osu.edu/transportation#successor&quot;/&gt;
+
+	&lt;!-- Define the &quot;predecessor&quot; property --&gt;
+	&lt;owl:ObjectProperty rdf:about=&quot;http://ontology.osu.edu/transportation#predecessor&quot;/&gt;
+
+&lt;/rdf:RDF&gt;
+					</code></pre>
+
+				<pre><code>
+&lt;rdf:RDF
+	xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;
+	xmlns:trans=&quot;http://ontology.osu.edu/transportation#&quot;&gt;
+
+	&lt;!-- Define Bugatti Veyron --&gt;
+	&lt;rdf:Description rdf:about=&quot;http://rdf.osu.edu/cars#bugattiVeyron&quot;&gt;
+
+		&lt;!-- Bugatti Veyron is an individual (instance) of motor vehicle --&gt;
+		&lt;rdf:type rdf:resource=&quot;http://ontology.osu.edu/transportation#motorVehicle&quot;/&gt;
+
+		&lt;!-- The top speed of Bugatti Veyron is 254 mph --&gt;
+		&lt;trans:topSpeed&gt;254mph&lt;/trans:topSpeed&gt;
+
+		&lt;!-- Bugatti Chiron is the successor of Bugatti Veyron --&gt;
+		&lt;trans:successor rdf:resource=&quot;http://rdf.osu.edu/cars#bugattiChiron&quot;/&gt;
+
+	&lt;/rdf:Description&gt;
+
+	&lt;!-- Define Bugatti Chiron --&gt;
+	&lt;rdf:Description rdf:about=&quot;http://rdf.osu.edu/cars#bugattiChiron&quot;&gt;
+
+		&lt;!-- Bugatti Chiron is an individual (instance) of motor vehicle --&gt;
+		&lt;rdf:type rdf:resource=&quot;http://ontology.osu.edu/transportation#motorVehicle&quot;/&gt;
+
+		&lt;!-- The top speed of Bugatti Veyron is 288 mph --&gt;
+		&lt;trans:topSpeed&gt;288mph&lt;/trans:topSpeed&gt;
+
+		&lt;!-- Bugatti Veyron is the predecessor of Bugatti Chiron --&gt;
+		&lt;trans:predecessor rdf:resource=&quot;http://rdf.osu.edu/cars#bugattiVeyron&quot;/&gt;
+
+	&lt;/rdf:Description&gt;
+
+&lt;/rdf:RDF&gt;
+					</code></pre>
 			</div>
-		</div>
+			<br>
+			<hr>
 
-	</body>
+
+		</div>
+	</div>
+
+</body>
+
 </html>

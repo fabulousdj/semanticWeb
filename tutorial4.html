@@ -50,7 +50,7 @@
 			<hr>
 			<div class="projects-subsection">
 
-				<h2 id="fundamentalbuildblocksofsemanticweb">Fundamental Build Blocks of Semantic Web</h2>
+				<h2>Key Concepts of Semantic Modeling</h2>
 
 				<ul>
 					<li>Vocabulary: A collection of terms given a well-defined meaning that is consistent across contexts.
@@ -68,7 +68,7 @@
 					</li>
 				</ul>
 
-				<h2 id="howdowedefinevocabularyandontology">How Do We Define Vocabulary and Ontology</h2>
+				<h2>How Do We Define Vocabulary and Ontology</h2>
 
 				<ul>
 					<li>
@@ -94,88 +94,85 @@
 									<li>&#8220;Bugatti Veyron is a motor vehicle whose top speed is 254 mph, while its successor, Bugatti Chiron, can reach a top speed of 288 mph.&#8221;</li>
 								</ul>
 							</li>
+							<li>Define the Ontology:</li>
 						</ul>
+
+						<pre><code>
+	&lt;rdf:RDF 
+		xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; 
+		xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot; 
+		xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot;&gt;
+
+		&lt;!-- Define the &quot;Vehicle&quot; class --&gt;
+		&lt;owl:Class 
+			rdf:about=&quot;http://ontology.osu.edu/transportation#vehicle&quot;&gt;
+			&lt;rdfs:label&gt;The vehicle type&lt;/rdfs:label&gt;
+			&lt;rdfs:comment&gt;The class of vehicle types.&lt;/rdfs:comment&gt;
+		&lt;/owl:Class&gt;
+
+		&lt;!-- Define the &quot;Motor Vehicle&quot; class as a subclass of &quot;Vehicle&quot; --&gt;
+		&lt;owl:Class 
+			rdf:about=&quot;http://ontology.osu.edu/transportation#motorVehicle&quot;&gt;
+
+			&lt;!-- Motor Vehicle is a kind of Vehicle --&gt;
+			&lt;rdfs:subClassOf rdf:resource=&quot;http://ontology.osu.edu/transportation#vehicle&quot;/&gt;
+			&lt;rdfs:label&gt;The motor vehicle type&lt;/rdfs:label&gt;
+			&lt;rdfs:comment&gt;The class of motor vehicle.&lt;/rdfs:comment&gt;
+		&lt;/owl:Class&gt;
+
+		&lt;!-- Define the &quot;top speed&quot; property --&gt;
+		&lt;owl:DatatypeProperty rdf:about=&quot;http://ontology.osu.edu/transportation#topSpeed&quot;/&gt;
+
+		&lt;!-- Define the &quot;successor&quot; property --&gt;
+		&lt;owl:ObjectProperty rdf:about=&quot;http://ontology.osu.edu/transportation#successor&quot;/&gt;
+
+		&lt;!-- Define the &quot;predecessor&quot; property --&gt;
+		&lt;owl:ObjectProperty rdf:about=&quot;http://ontology.osu.edu/transportation#predecessor&quot;/&gt;
+
+	&lt;/rdf:RDF&gt;
+							</code></pre>
+
+						<ul>
+							<li>Define the Data Graph</li>
+						</ul>
+
+						<pre><code>
+	&lt;rdf:RDF
+		xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;
+		xmlns:trans=&quot;http://ontology.osu.edu/transportation#&quot;&gt;
+
+		&lt;!-- Define Bugatti Veyron --&gt;
+		&lt;rdf:Description rdf:about=&quot;http://rdf.osu.edu/cars#bugattiVeyron&quot;&gt;
+
+			&lt;!-- Bugatti Veyron is an individual (instance) of motor vehicle --&gt;
+			&lt;rdf:type rdf:resource=&quot;http://ontology.osu.edu/transportation#motorVehicle&quot;/&gt;
+
+			&lt;!-- The top speed of Bugatti Veyron is 254 mph --&gt;
+			&lt;trans:topSpeed&gt;254mph&lt;/trans:topSpeed&gt;
+
+			&lt;!-- Bugatti Chiron is the successor of Bugatti Veyron --&gt;
+			&lt;trans:successor rdf:resource=&quot;http://rdf.osu.edu/cars#bugattiChiron&quot;/&gt;
+
+		&lt;/rdf:Description&gt;
+
+		&lt;!-- Define Bugatti Chiron --&gt;
+		&lt;rdf:Description rdf:about=&quot;http://rdf.osu.edu/cars#bugattiChiron&quot;&gt;
+
+			&lt;!-- Bugatti Chiron is an individual (instance) of motor vehicle --&gt;
+			&lt;rdf:type rdf:resource=&quot;http://ontology.osu.edu/transportation#motorVehicle&quot;/&gt;
+
+			&lt;!-- The top speed of Bugatti Veyron is 288 mph --&gt;
+			&lt;trans:topSpeed&gt;288mph&lt;/trans:topSpeed&gt;
+
+			&lt;!-- Bugatti Veyron is the predecessor of Bugatti Chiron --&gt;
+			&lt;trans:predecessor rdf:resource=&quot;http://rdf.osu.edu/cars#bugattiVeyron&quot;/&gt;
+
+		&lt;/rdf:Description&gt;
+
+	&lt;/rdf:RDF&gt;
+							</code></pre>
 					</li>
 				</ul>
-
-				<pre><code>
-&lt;rdf:RDF 
-	xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot; 
-	xmlns:rdfs=&quot;http://www.w3.org/2000/01/rdf-schema#&quot; 
-	xmlns:owl=&quot;http://www.w3.org/2002/07/owl#&quot;&gt;
-	
-	&lt;!-- Define the &quot;Vehicle&quot; class --&gt;
-	&lt;owl:Class 
-		rdf:about=&quot;http://ontology.osu.edu/transportation#vehicle&quot;&gt;
-		&lt;rdfs:label&gt;The vehicle type&lt;/rdfs:label&gt;
-		&lt;rdfs:comment&gt;The class of vehicle types.&lt;/rdfs:comment&gt;
-	&lt;/owl:Class&gt;
-
-	&lt;!-- Define the &quot;Motor Vehicle&quot; class as a subclass of &quot;Vehicle&quot; --&gt;
-	&lt;owl:Class 
-		rdf:about=&quot;http://ontology.osu.edu/transportation#motorVehicle&quot;&gt;
-
-		&lt;!-- Motor Vehicle is a kind of Vehicle --&gt;
-		&lt;rdfs:subClassOf rdf:resource=&quot;http://ontology.osu.edu/transportation#vehicle&quot;/&gt;
-		&lt;rdfs:label&gt;The motor vehicle type&lt;/rdfs:label&gt;
-		&lt;rdfs:comment&gt;The class of motor vehicle.&lt;/rdfs:comment&gt;
-	&lt;/owl:Class&gt;
-	
-	&lt;!-- Define the &quot;top speed&quot; property --&gt;
-	&lt;owl:DatatypeProperty rdf:about=&quot;http://ontology.osu.edu/transportation#topSpeed&quot;/&gt;
-	
-	&lt;!-- Define the &quot;successor&quot; property --&gt;
-	&lt;owl:ObjectProperty rdf:about=&quot;http://ontology.osu.edu/transportation#successor&quot;/&gt;
-
-	&lt;!-- Define the &quot;predecessor&quot; property --&gt;
-	&lt;owl:ObjectProperty rdf:about=&quot;http://ontology.osu.edu/transportation#predecessor&quot;/&gt;
-
-&lt;/rdf:RDF&gt;
-					</code></pre>
-
-				<pre><code>
-&lt;rdf:RDF
-	xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;
-	xmlns:trans=&quot;http://ontology.osu.edu/transportation#&quot;&gt;
-
-	&lt;!-- Define Bugatti Veyron --&gt;
-	&lt;rdf:Description rdf:about=&quot;http://rdf.osu.edu/cars#bugattiVeyron&quot;&gt;
-
-		&lt;!-- Bugatti Veyron is an individual (instance) of motor vehicle --&gt;
-		&lt;rdf:type rdf:resource=&quot;http://ontology.osu.edu/transportation#motorVehicle&quot;/&gt;
-
-		&lt;!-- The top speed of Bugatti Veyron is 254 mph --&gt;
-		&lt;trans:topSpeed&gt;254mph&lt;/trans:topSpeed&gt;
-
-		&lt;!-- Bugatti Chiron is the successor of Bugatti Veyron --&gt;
-		&lt;trans:successor rdf:resource=&quot;http://rdf.osu.edu/cars#bugattiChiron&quot;/&gt;
-
-	&lt;/rdf:Description&gt;
-
-	&lt;!-- Define Bugatti Chiron --&gt;
-	&lt;rdf:Description rdf:about=&quot;http://rdf.osu.edu/cars#bugattiChiron&quot;&gt;
-
-		&lt;!-- Bugatti Chiron is an individual (instance) of motor vehicle --&gt;
-		&lt;rdf:type rdf:resource=&quot;http://ontology.osu.edu/transportation#motorVehicle&quot;/&gt;
-
-		&lt;!-- The top speed of Bugatti Veyron is 288 mph --&gt;
-		&lt;trans:topSpeed&gt;288mph&lt;/trans:topSpeed&gt;
-
-		&lt;!-- Bugatti Veyron is the predecessor of Bugatti Chiron --&gt;
-		&lt;trans:predecessor rdf:resource=&quot;http://rdf.osu.edu/cars#bugattiVeyron&quot;/&gt;
-
-	&lt;/rdf:Description&gt;
-
-&lt;/rdf:RDF&gt;
-					</code></pre>
-			</div>
-			<br>
-			<hr>
-
-
-		</div>
-	</div>
-
 </body>
 
 </html>

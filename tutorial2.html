@@ -47,25 +47,46 @@
 				<br>
 				<hr>
 				<div class="projects-subsection">
-					<h2>Tutorial 2</h2>
+					<h2>What is RDF?</h2>
 					<ul class="subsection-top-list">
-						<li>Intro to graph data [<a class="pretty-link" href="" target="new">pdf</a>] [<a class="pretty-link" href="" target="new">slides</a>] [<a class="pretty-link" href="" target="new">website</a>]
-							<ol class="grey-list">
-								<li>Go here</li>
-								<li>then here</li>
-							</ol>
-						</li>
-						<li>Here's a screen shot 
-							<ul class="grey-list">
-								<li>Description</li>
-							</ul>
-						</li>
+						<li>RDF stands for <b>R</b>esource <b>D</b>escription <b>F</b>ramework. </li>
+						<li>RDF provides a model for data, and a syntax so that independent parties can exchange and use it. </li>
+						<li>If the graph data model is the model the semantic web uses to store data, RDF is the format in which it is written. </li>
+						<li>RDF is designed to be read and understand by machines instead of humans. Thus RDF itself is semantically meaningless.</li>
+						<li>RDF is written in XML. </li>
 					</ul>
+
+					<h2>How does RDF work?</h2>
+					First, you can think of the wrold wide web as a web that is made up with relationships among all kinds of resources.<br>
+					<br>
+					Second, RDF, a.k.a. resource description framework, as its name suggests, defines a way to describe resources. Simply you can think of each description as a collection of triples with a subject, a predicate and an object.
+					For example, <b>{Apple, is, company}, {Steve Jobs, is, human}, {Apple, founder is, Steve Jobs}</b>.<br>
+					The more triples like these we have, the more we know about Apple Inc.<br>
+					<br>
+					But what if one day we waht to insert another triple {Apple, is, fruit}? <br>
+					To eliminate any ambiguity, RDF uses a collection of identifiers called <b>URIs</b> (<b>U</b>niversal <b>R</b>esource <b>I</b>dentifiers) to represent each unique resource on the world wide web.<br>
+					Once everything has an unique representation, we can say a triple in RDF should follow the format <b>{URI, URI, URI}</b>.<br>
+					<br>
+					With enough triples like these, we can buid a knowledge web. Furthermore, by merging all these small knowledge webs together, we then have a giant semantic web, and every element inside is unambiguous and queryable. With the semantic web, we can perform simple operations and inductions to gain new knowledge based on existing ones.<br>
+					<br>
+
+					<h2>Write RDF in XML</h2>
+					A RDF statement basically follows the forms as below:<br>
+					<br>
+					<img src="img/rdf_statement.png"><br>
+					<br>
+					For example:<br>
+					<br>
+					<img src="img/rdf_example.png"><br>
+					<br>
+					This RDF document means that resource "http://www.linkeddatatools.com/clothes#t-shirt" has size of 12 and color of "http://www.linkeddatatools.com/colors#white".<br>
+					<br>
+					You can find a more comprehensive tutorial about RDF grammars and rules at <a href="http://w3schools.sinsixx.com/rdf/default.asp.htm">HERE</a>.<br>					
+					<br>
+
 				</div>
 				<br>
 				<hr>
-
-
 			</div>
 		</div>
 
